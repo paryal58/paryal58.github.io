@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            paryal58.github.io
+        </title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Roboto+Slab:wght@400;600;700;800&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+    </head>
+    <body>
+        <section class="header">
+            <nav>
+                <a href="index.html"> <img src="IMG_2023-09-11-09-22-57-630.jpg"></a>
+                <div class="nav-links" id="navLinks">
+                <i class="fa fa-times-circle-o" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href=""> HOME </a></li>
+                        <li><a href=""> ABOUT ME </a></li>
+                        <li><a href=""> CONTACT </a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>
+        <div class="text-box">
+            <h1> Hello </h1>
+            <h2> and Welcome </h2>
+            <a href="" class="thing-button"> Check about me to know more</a>
+        </div>
+        </section>
+        <!----Home 2nd section-->
+        <section class="home-1">
+            <h1>Hi! I am Prasanga</h1>
+            <h3> Here is a little story about me and why I decided to pursue Computer Science... </h3>
+            <p>Since my childhood, I've held a deep fascination for machinery and their <br>
+             inner workings. Ever since I remember, I found myself captivated by the sight<br> of cars on the road and people using cell phones.
+              From as far back as I can remember, my aspiration has been to create and program <br>such pieces of technology. With the dream of 
+              crafting something that would make the younger version of myself proud,<br> I have embarked on the journey of pursuing a degree in Computer Science.​</p>
+        </section>
+        <section class="footer">
+            <h4> About Me</h4>
+            <p> Please navigate the about me and contact section of this website to know more about me.</p>
+            <div class="icons">
+                <i class="fa fa-facebook"></i>
+                <i class="fa fa-github"></i>
+                <i class="fa fa-linkedin"></i>
+                <i class="fa fa-envelope"></i>
+            </div>
+        </section>
+        <!---Script for adding clickable function for the menu and close on mobile devices-->
+        <script>
+                var navLinks = document.getElementById("navLinks");
+                function showMenu(){
+                    navLinks.style.right="0";
+                }
+                function hideMenu(){
+                    navLinks.style.right="-200px";
+                }
+        </script>
+    </body>
+</html>

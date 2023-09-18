@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            paryal58.github.io
+        </title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Roboto+Slab:wght@400;600;700;800&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+    </head>
+    <body>
+        <section class="sub-header">
+            <nav>
+                <a href="index.html"> <img src="IMG_2023-09-11-09-22-57-630.jpg"></a>
+                <div class="nav-links" id="navLinks">
+                <i class="fa fa-times-circle-o" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href=""> HOME </a></li>
+                        <li><a href=""> ABOUT ME </a></li>
+                        <li><a href=""> CONTACT </a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>
+        </section>
+        <section class="about-me">
+            <h1> Here's everything you need to know about me</h1>
+            <p> I am Prasanga, an undergraduate student currently pursuing BS in Computer Science at <br> University of Kentucky, Lexington, Kentucky.</p>
+            <p> I am really enthusiastic about tech and that is the sole reason of my decision to pursue a CS degree.</p>
+        </section>
+        <!----Home 2nd section-->
+        <section class="footer">
+            <p> Please navigate contact section of this website to contact me.</p>
+            <div class="icons">
+                <i class="fa fa-facebook"></i>
+                <i class="fa fa-github"></i>
+                <i class="fa fa-linkedin"></i>
+                <i class="fa fa-envelope"></i>
+            </div>
+        </section>
+        <!---Script for adding clickable function for the menu and close on mobile devices-->
+        <script>
+                var navLinks = document.getElementById("navLinks");
+                function showMenu(){
+                    navLinks.style.right="0";
+                }
+                function hideMenu(){
+                    navLinks.style.right="-200px";
+                }
+        </script>
+    </body>
+</html>
