@@ -1,2 +1,2 @@
 # paryal58.github.io
-This is a repo for personal website I am working on
+WIP repo for the personal website I am working on
