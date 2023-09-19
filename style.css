@@ -291,6 +291,10 @@ p{
     margin-bottom: 30px;
 }
 
+.contact-col h1{
+    color: red;
+}
+
 .contact-col div{
     display: flex;
     align-items: center;
@@ -301,21 +305,21 @@ p{
     font-size: 28px;
     color: red;
     margin: 10px;
-    margin-right: 30px;
+    margin-right: 80px;
 }
 
 .contact-col div .fa-brands{
     font-size: 28px;
     color: red;
     margin: 10px;
-    margin-right: 30px;
+    margin-right: 80px;
 }
 
 .contact-col div .fa-solid{
     font-size: 28px;
     color: red;
     margin: 10px;
-    margin-right: 30px;
+    margin-right: 80px;
 }
 
 .contact-col div h5{
