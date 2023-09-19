@@ -127,6 +127,13 @@ nav .fa{
         font-size: 22px;
         cursor: pointer;
     }
+    .nav .fa-solid{
+        display: block;
+        color: blue;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
     .nav-links ul{
         padding: 25px;
     }
@@ -178,6 +185,21 @@ p{
     margin-bottom: 25px;
     margin-top: 20px;
     font-weight: 400;
+}
+
+.footer a:link{
+    color: red;
+    text-decoration: none;
+}
+
+.footer a:visited{
+    color: darkred;
+    text-decoration: none;
+}
+
+.footer a:hover{
+    color: orangered;
+    text-decoration: none;
 }
 /*
 .icons .fa{
