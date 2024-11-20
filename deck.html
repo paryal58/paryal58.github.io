@@ -1,16 +1,18 @@
-
-<!--CS316 : Assignment 3-->
+<!--
+RED|BLACK: This is a game created using HTML, CSS and JavaScript along with the API given by the teacher(in my CS316 WebProgramming Class).
+This game fetches a deck of cards and randomly chooses five cards from the deck. The cards are initially faced backwards and the player is allowed to choose one of two options- red or black.
+A player wins if the color selected is the majority(3 or more). This game incorportates reset stats (to reset all the progress), show cheats (that displays the number of colors remaining in the deck
+and probability of cards of colors) and a progress bar showing number of remaining cards in deck.
+-->
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script> 
     <title>Red or Black</title>
 </head>
-
 <body>
     <div id="mainBody" style="width:90%; margin:auto">
         <div class="ui segment" id="content">
@@ -57,7 +59,6 @@
 
         </div>
     </div>
-
     <script>
         let deckID;
         let drawnCards = [];

@@ -85,6 +85,11 @@ nav img{
     font-size: 72px;
 }
 
+.deck-text{
+    text-align: left;
+    left: 0%;
+}
+
 .thing-button{
     display: inline-block;
     text-decoration: none;
@@ -95,6 +100,11 @@ nav img{
     background: transparent;
     position: relative;
     cursor: pointer;
+}
+
+.deck{
+    border-radius: 20px;
+    font-size: 30px;
 }
 
 .thing-button:hover{
@@ -139,6 +149,12 @@ nav .fa{
     }
 }
 
+.introduction{
+    margin: auto;
+    width: 70%;
+    font-size: 16px;
+}
+
 .home-1{
     width: 100%;
     margin: auto;
@@ -157,6 +173,11 @@ h3{
     margin: 10px 0;
 }
 
+h4{
+    text-align: left;
+    margin: 20px 20px;
+}
+
 p{
     color: black;
     font-size: 14px;
@@ -164,13 +185,6 @@ p{
     line-height: 22px;
     padding: 10px;
 }
-/*
-.home-1:hover{
-    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
-    border-radius: 40px solid white;
-    background: white;
-    transition: 0.5s;
-}*/
 
 .footer{
     width: 100%;
@@ -201,13 +215,6 @@ p{
     color: orangered;
     text-decoration: none;
 }
-/*
-.icons .fa{
-    color: red;
-    margin: 12px 13px;
-    cursor: pointer;
-    padding: 18px 5px;
-}*/
 
 .sub-header{
     height: 20vh;
