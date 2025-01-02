@@ -1,2 +1,15 @@
 # paryal58.github.io
-WIP repo for the personal website I am working on
+Personal Website
+
+*Hello, welcome to the repo for my personal website. This website can be visited by using the link https://paryal58.github.io.
+This site is created using HTML, CSS and JavaScript. It contains three main html files: index.html, about.html and contact.html.
+It also contains a style.css file and a script.js file.
+
+Below is the preview for the site:*
+
+![Website Preview](./ss.jpeg)
+
+![Website Preview1](./ss1.jpeg)
+
+![Website Preview2](./ss2.jpeg)
+
