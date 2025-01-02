@@ -1,11 +1,11 @@
 # paryal58.github.io
 Personal Website
 
-*Hello, welcome to the repo for my personal website. This website can be visited by using the link https://paryal58.github.io.
+_Hello, welcome to the repo for my personal website. This website can be visited by using the link https://paryal58.github.io.
 This site is created using HTML, CSS and JavaScript. It contains three main html files: index.html, about.html and contact.html.
 It also contains a style.css file and a script.js file.
 
-Below is the preview for the site:*
+Below is the preview for the site:_
 
 ![Website Preview](./ss.jpeg)
 
