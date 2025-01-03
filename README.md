@@ -7,9 +7,9 @@ It also contains a style.css file and a script.js file.
 
 Below is the preview for the site:_
 
-![Website Preview](./ss.jpeg)
+![Website Preview](./images/ss.jpeg)
 
-![Website Preview1](./ss1.jpeg)
+![Website Preview1](./images/ss1.jpeg)
 
-![Website Preview2](./ss2.jpeg)
+![Website Preview2](./images/ss2.jpeg)
 
