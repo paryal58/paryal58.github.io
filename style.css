@@ -79,8 +79,8 @@ nav img{
     text-decoration: none;
     color: white;
     border: solid white;
-    padding: 1% 1%;
-    font-size: 1.5em;
+    padding: 0% 1%;
+    font-size: 1.7em;
     background: transparent;
     position: relative;
     cursor: pointer;
@@ -169,7 +169,7 @@ p{
 
 @media(max-width: 800px){
     .header{
-        min-height: 62vh;
+        min-height: 65vh;
     }
     .nav-links a{
 	color: white;
@@ -178,7 +178,7 @@ p{
         font-size: 42px;
     }
     .portfolio-button{
-        font-size: 17px;
+        font-size: 25px;
     }
     .nav-links a{
         display: block;
@@ -282,42 +282,21 @@ p{
     z-index: 1;
 }
 
-.contact-info{
-    width: 80%;
-    margin: auto;
-}
-
-.contact-info a{
-    font-size: 18px;
-    text-decoration: none;
-}
-
-.contact-info a:link{
-    color: black;
-}
-
-.contact-info a:visited{
-    color: black;
-}
-
-.contact-info a:hover{
-    color: black;
-}
 
 .contact-col{
-    flex-basis: 48%;
-    margin-bottom: 25px;
+    padding-left: 5%;
+    color: red;
 }
 
 .contact-col h1{
     color: red;
-    margin-top: 10%;
+    margin-top: 2%;
 }
 
 .contact-col div{
-    display: flex;
     align-items: center;
     margin-bottom: 30px;
+    font-size: 30px;
 }
 
 .contact-col div .fa{
@@ -341,12 +320,21 @@ p{
     margin-right: 80px;
 }
 
-.contact-col div h5{
+.contact-col a{
     font-size: 18px;
     margin-bottom: 5px;
-    color: #555;
+    color: red;
     font-weight: 400;
+    display: inline;
+    text-decoration: none;
+    padding-left: 3%;
 
+}
+
+.contact-col h5{
+    font-size: 18px;
+    display: inline;
+    padding-left: 3%;
 }
 
 .sub-header-1{
@@ -366,8 +354,4 @@ p{
 
 .sub-header-1 a img:hover{
     transform: scale(1.2);
-}
-
-.icons{
-    font-size: 20px;
 }
