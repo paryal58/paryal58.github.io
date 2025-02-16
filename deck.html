@@ -1,0 +1,302 @@
+<!--
+RED|BLACK: This is a game created using HTML, CSS and JavaScript along with the API given by the teacher(in my CS316 WebProgramming Class).
+This game fetches a deck of cards and randomly chooses five cards from the deck. The cards are initially faced backwards and the player is allowed to choose one of two options- red or black.
+A player wins if the color selected is the majority(3 or more). This game incorportates reset stats (to reset all the progress), show cheats (that displays the number of colors remaining in the deck
+and probability of cards of colors) and a progress bar showing number of remaining cards in deck.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script> 
+    <title>Red or Black</title>
+</head>
+<body>
+    <div id="mainBody" style="width:90%; margin:auto">
+        <div class="ui segment" id="content">
+            <div id="game">
+                <h1><strong> <span style="color:red;">Red</span> | <span style="color:black;">Black</span> </strong> </h1>
+            </div>
+
+            <div id="buttons" class="ui segment blue inverted">
+                <p><strong>Cards</strong></p>
+                <div id = "buttons" class="ui segment white">
+                    <p id="start"><strong>Click Draw Hand to start a game.</strong></p>
+                    <button id="drawHand" class="ui button">Draw Hand</button>
+                    <button id="chooseRed" class="ui button" style="display: none; background-color: red; color:white;">Red</button>
+                    <button id="chooseBlack" class="ui button" style="display: none; background-color: black; color:white;">Black</button>
+                    <div id="oneCard" class="ui segment" style="display: none;"></div>
+                    <p id="output" class="ui segment json" style="display: none;"></p>
+                </div>
+            </div>
+            
+            <div id="stats" class="ui segment black inverted">
+                <p><strong>Stats</strong></p>
+                <div id="stats" class="ui segment">
+                    <p><strong>Wins:</strong> <span id="winCount">0</span></p>
+                    <p><strong>Win Percentage:</strong> <span id="winPercent">0%</span></p>
+                    <p><strong>Cards Remaining:</strong> <span id="remainingCards">0</span></p>
+                    <progress id="cardProgressBar" value="100" max="100" style="width: 15%; height: 40px;"></progress>
+                    <br><button id="resetStats" class="ui button">Reset Stats</button></br>
+                </div>
+            </div>
+
+            <div id="history" class="ui segment green inverted">
+                <p><strong>History</strong></p>
+                <div id="eventInfo" class="ui segment json"></div>
+            </div>
+
+            <div id="cheats" class="ui segment red inverted">
+                <strong>Cheats</strong>
+                <button id="showCheats" class="ui button" style="background-color: brown; color:white;">Show</button>
+                <button id="hideCheats" class="ui button" style="background-color: brown; color: white;display: none;">Hide</button>
+                <p id="cheatOutput" class="ui segment json" style="display: none;"></p>
+            </div>
+
+            <div id="cardInfo" class="ui internally celled grid"></div>
+
+        </div>
+    </div>
+    <script>
+        let deckID;
+        let drawnCards = [];
+        let winCount = 0;
+        let totalGames = 0;
+        let cardsLeft = 0;
+        let redCheat = 0;
+        let blackCheat = 0;
+        let cheatsEnabled = false;
+
+        // References to buttons and div to hold output
+        dh = document.querySelector("#drawHand");
+        cr = document.querySelector("#chooseRed");
+        cb = document.querySelector("#chooseBlack");
+        rs = document.querySelector("#resetStats");
+        sc = document.querySelector("#showCheats");
+        hc = document.querySelector("#hideCheats");
+
+        // Event listeners for buttons
+        dh.addEventListener("click", drawHand);
+        cr.addEventListener("click", () => evaluateHand("Red"));
+        cb.addEventListener("click", () => evaluateHand("Black"));
+        rs.addEventListener("click", resetStats);
+        sc.addEventListener("click", showHints);
+        hc.addEventListener("click", hideHints);
+
+        // Fetch a new Deck
+        async function fetchDeck(event) {
+            await fetch("https://cards.soward.net/deck/newDeck")
+                .then(async (response) => {
+                    const cards = await response.json();
+                    if (cards.success) {
+                        deckID = cards.deckID;
+                    } 
+                    else {
+                        console.error("Error:", cards.error);
+                    }
+                }).catch((error) => divLog("Error: " , cards.error));
+        }
+
+        async function drawHand() {
+            if (!deckID) {
+                await fetchDeck();
+            }
+            cardsLeft = await getDeckStatus();
+            document.getElementById("oneCard").innerHTML = "";
+            document.getElementById("output").innerHTML = "";
+            document.getElementById("drawHand").style.display = "none";
+            document.getElementById("start").style.display = "none";
+            document.getElementById("oneCard").style.display = "block";
+            document.getElementById("chooseRed").style.display = "inline-block";
+            document.getElementById("chooseBlack").style.display = "inline-block";
+            if (cardsLeft < 5) {
+                simpleOut("Less than 5 cards left. Shuffling the deck.");
+                shuffleDeck();
+                return simpleOut("Deck Shuffled. Click Draw Hand to play again!");
+            }
+            drawnCards = []; 
+            var black = 0;
+            var red = 0;
+            document.getElementById("output").style.display = "block";
+            await fetch("https://cards.soward.net/deck/drawFromDeck/" + deckID + "/5")
+                .then(async (response) => {
+                    const cardResponse = await response.json();
+                    if (cardResponse.success) {
+                        for (const aCard of cardResponse.cards) {
+                            drawnCards.push(aCard);
+                            const cardImage = document.createElement("img");
+                            cardImage.src = 'https://cards.soward.net//images//backs//red.svg';
+                            document.getElementById('oneCard').appendChild(cardImage);
+                            if (aCard.color === "black") {
+                                black++;
+                            }
+                            else if (aCard.color === "red") {
+                                red++;
+                            }
+                            window.redCount = red;
+                            window.blackCount = black;
+                        }
+                    } else {
+                        divLog(cardResponse.error);
+                        return;
+                    }
+                }).catch((error) => divLog("Error: " + error));
+        }
+        
+        async function evaluateHand(selectedColor) {
+            const redCount = window.redCount || 0;
+            const blackCount = window.blackCount || 0;
+            const cardsLeft = await getDeckStatus();
+            const up = '<i class="thumbs up icon"></i>';
+            const down = '<i class="thumbs down icon"></i>';
+            const cardImages = document.querySelectorAll("#oneCard img");
+            drawnCards.forEach((card, index) => {
+                cardImages[index].src = card.svgImage;  
+                if (card.color === "black") {
+                    blackCheat++;
+                }
+                else if (card.color === "red") {
+                    redCheat++;
+                }
+            });
+
+            if (selectedColor === "Red" && redCount > blackCount) {
+                divLog(`${up}Won | guessed Red | cards remaining : ${cardsLeft}`);
+                simpleOut("You Won! There are less black cards than red.");
+                winCount++;
+            } else if (selectedColor === "Black" && blackCount > redCount) {
+                winCount++;
+                divLog(`${up}Won | guessed Black | cards remaining : ${cardsLeft}`);
+                simpleOut("You Won! There are less red cards than black.");
+            } else {
+                (selectedColor === "Red") ? divLog(`${down}Lost | guessed Red | cards remaining : ${cardsLeft}`): divLog(`${down}Lost | guessed Black | cards remaining : ${cardsLeft}`);
+                (selectedColor === "Red") ? simpleOut("You lost! There are less red cards than black.") : simpleOut("You lost! There are less black cards than red.");
+            }
+            document.getElementById("drawHand").style.display = "inline-block";
+            document.getElementById("chooseRed").style.display = "none";
+            document.getElementById("chooseBlack").style.display = "none";
+            totalGames++;
+            updateStats();
+            if (cheatsEnabled)
+                showHints();
+        }
+
+        async function shuffleDeck() {
+            if (!deckID) return;
+            await fetch(`https://cards.soward.net/deck/shuffleDeck/${deckID}`)
+                .then(async (response) => {
+                    const data = await response.json();
+                    if (data.success) {
+                        document.getElementById("drawHand").style.display = "inline-block";
+                        document.getElementById("chooseRed").style.display = "none";
+                        document.getElementById("chooseBlack").style.display = "none";
+                        blackCheat = 0;
+                        redCheat = 0;
+                        if (cheatsEnabled)
+                            showHints();
+                    }
+                }).catch((error) => divLog("Error shuffling deck: " + error));
+        }
+
+        function resetStats() {
+            winCount = 0;
+            totalGames = 0;
+            redCount = 0;
+            blackCount = 0;
+            updateStats(0);
+            document.getElementById("oneCard").innerHTML = "";
+            document.getElementById("output").innerHTML = "";
+            document.getElementById("eventInfo").innerHTML = "";
+            document.getElementById("drawHand").style.display = "inline-block";
+            document.getElementById("chooseRed").style.display = "none";
+            document.getElementById("chooseBlack").style.display = "none";
+        }
+
+        function calcProb(color) {
+            const totalRemainingCards = 52 - blackCheat - redCheat;
+            if (totalRemainingCards < 5) 
+                return 0;
+            let probability = 0;
+            if (color === "Red") {
+                for (let k = 3; k <= 5; k++) {
+                    const p = (math.combinations(26-redCheat, k) * math.combinations(26-blackCheat, 5 - k)) / math.combinations(totalRemainingCards, 5);
+                    probability += p;
+                }
+            }
+            else if (color === "Black"){
+                for (let k = 3; k <= 5; k++) {
+                    const p = (math.combinations(26-blackCheat, k) * math.combinations(26-redCheat, 5 - k)) / math.combinations(totalRemainingCards, 5);
+                    probability += p;
+                }  
+            }
+            return (probability * 100).toFixed(2);
+        }
+
+        function showHints() {
+            cheatsEnabled = true;
+            document.getElementById("cheatOutput").innerHTML = "";
+            document.getElementById("cheatOutput").style.display = "block";
+            document.getElementById("hideCheats").style.display = "inline-block";
+            document.getElementById("showCheats").style.display = "none";
+            chOutput(`Cards left by color: <h2><span style="color:red;">${26-redCheat}</span> | <span style="color:black;">${26-blackCheat}</span></h2>`);
+            chOutput(`Probability by color: <h2><span style="color:red;">${calcProb("Red")}</span> | <span style="color:black;">${calcProb("Black")}</span></h2>`);
+        }
+
+        function hideHints() {
+            cheatsEnabled = false;
+            document.getElementById("showCheats").style.display = "inline-block";
+            document.getElementById("hideCheats").style.display = "none";
+            document.getElementById("cheatOutput").style.display = "none";
+        }
+
+        async function getDeckStatus() {
+            if (!deckID) 
+                return 0;
+            return await fetch(`https://cards.soward.net/deck/deckStatus/${deckID}`)
+                .then(async (response) => {
+                    const data = await response.json();
+                    if (data.success) {
+                        document.getElementById("remainingCards").textContent = data.cardsRemaining;
+                        const progressPercentage = (data.cardsRemaining / 52) * 100;
+                        document.getElementById("cardProgressBar").value = progressPercentage;
+                        return data.cardsRemaining;
+                    }
+                }).catch((error) => {
+                    divLog("Error fetching deck status: " + error);
+                    return 0;
+                });
+        }
+
+        async function updateStats() {
+            document.getElementById("winCount").textContent = winCount;
+            document.getElementById("remainingCards").textContent = await getDeckStatus();
+            const winPercent = totalGames ? ((winCount / totalGames) * 100).toFixed(1) : 0;
+            document.getElementById("winPercent").textContent = `${winPercent}%`;
+        }
+
+        function divLog(message) {
+            const log = document.createElement("div");
+            log.className = "ui segment";
+            log.innerHTML = "<pre>" + message + "</pre>";
+            document.getElementById("eventInfo").appendChild(log);
+        }
+
+        function simpleOut(message) {
+            const log = document.createElement("p");
+            log.className = "ui segment";
+            log.innerHTML = message;
+            document.getElementById("output").appendChild(log);
+        }
+
+        function chOutput(message) {
+            const log = document.createElement("p");
+            log.className = "ui segment";
+            log.innerHTML = message;
+            document.getElementById("cheatOutput").appendChild(log);
+        }
+
+    </script>
+</body>
+</html>
