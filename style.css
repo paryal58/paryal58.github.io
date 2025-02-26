@@ -220,7 +220,7 @@ p{
 }
 
 .sub-header{
-    height: 20vh;
+    height: 15vh;
     width: 100%;
     background-image: linear-gradient(rgba(23, 215, 233, 0.7),rgba(23, 215, 233, 0.7));
     background-position: center;
@@ -251,7 +251,7 @@ p{
 
 .about-me{
     width: 100%;
-    margin: auto;
+    margin: 5% 1%;
     padding-top: 5%;
     padding-bottom: 5%;
     background-image: linear-gradient(rgba(23, 215, 233, 0.7),rgba(11, 23, 71, 0.7));
