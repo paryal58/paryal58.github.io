@@ -205,76 +205,6 @@ p {
     text-decoration: none;
 }
 
-
-@media(max-width: 800px) {
-    .header {
-        min-height: 65vh;
-    }
-
-    .nav-links a {
-        color: white;
-    }
-
-    .text-box h2 {
-        font-size: 42px;
-    }
-
-    .portfolio-button {
-        font-size: 25px;
-    }
-
-    .nav-links a {
-        display: block;
-    }
-
-    nav img {
-        width: 2.2em;
-        border-radius: 70%;
-    }
-
-    nav .fa {
-        display: block;
-        color: blue;
-        margin: 10px;
-        font-size: 22px;
-        cursor: pointer;
-    }
-
-    .nav-links a {
-        padding: 10px;
-    }
-
-    .home-1 h1 {
-        margin-top: 8%;
-        font-size: 18px;
-    }
-
-    .introduction {
-        margin-top: 8%;
-        width: 90%;
-        font-size: 16px;
-    }
-
-    .home-1 h1 {
-        font-size: 30px;
-    }
-
-    .about-me h1 {
-        font-size: 30px;
-    }
-
-    .footer .links {
-        font-size: 16px;
-    }
-
-    .footer .icons {
-        margin-top: 7%;
-        padding-left: 35%;
-        width: 30%;
-        display: flex;
-    }
-}
-
 .sub-header {
     height: 10vh;
     width: 100%;
@@ -310,12 +240,12 @@ p {
 .about-me {
     width: 100%;
     margin: auto;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: 3%;
+    padding-bottom: 3%;
     color: white;
     font-size: 1em;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 1em;
 }
 
@@ -467,4 +397,96 @@ p {
     border-radius: 0.5em;
     text-decoration: none;
     font-size: 1.2em;
+}
+
+
+@media(max-width: 800px) {
+    .header {
+        min-height: 80vh;
+    }
+
+    .nav-links a {
+        color: white;
+    }
+
+    .text-box h2 {
+        font-size: 36px;
+    }
+
+    .portfolio-button {
+        font-size: 25px;
+    }
+
+    .nav-links a {
+        display: block;
+    }
+
+    nav img {
+        width: 2.2em;
+        border-radius: 70%;
+    }
+
+    nav .fa {
+        display: block;
+        color: blue;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    .nav-links a {
+        padding: 10px;
+    }
+
+    .home-1 h1 {
+        margin-top: 8%;
+        font-size: 18px;
+    }
+
+    .introduction {
+        margin-top: 8%;
+        width: 90%;
+        font-size: 16px;
+    }
+
+    .home-1 h1 {
+        font-size: 30px;
+    }
+
+    .about-me h1 {
+        font-size: 30px;
+    }
+
+    .footer .links {
+        font-size: 16px;
+    }
+
+    .footer .icons {
+        margin-top: 7%;
+        padding-left: 35%;
+        width: 30%;
+        display: flex;
+    }
+
+    .project {
+        border: outset lightblue 0.3em;
+        box-shadow: 3px 3px 3px 3px purple;
+        border-radius: 1em;
+        height: 10em;
+        width: 15em;
+        margin-bottom: 2%;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card {
+        padding: 1% 1%;
+        border: inset 0.5px;
+        border-radius: 0.8em;
+        box-shadow: 1px 1px 3px 3px grey;
+        width: 30%;
+        background-color: aliceblue;
+    }
 }
