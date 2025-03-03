@@ -286,6 +286,7 @@ p {
     margin-right: auto;
     position: relative;
     overflow: hidden;
+    font-size: 1em;
 }
 
 #ai {
@@ -309,7 +310,17 @@ p {
     padding: 10px 20px;
     border-radius: 0.5em;
     text-decoration: none;
-    font-size: 1.2em;
+}
+
+#ai #ai-info {
+    background-color: rgba(32, 8, 8, 0.983);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 0.5em;
+    text-decoration: none;
+    position: absolute;
+    bottom: 2%;
+    left: 3%;
 }
 
 #rb {
@@ -333,7 +344,17 @@ p {
     padding: 10px 20px;
     border-radius: 0.5em;
     text-decoration: none;
-    font-size: 1.2em;
+}
+
+#rb #rb-info {
+    background-color: rgba(32, 8, 8, 0.983);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 0.5em;
+    text-decoration: none;
+    position: absolute;
+    bottom: 2%;
+    left: 3%;
 }
 
 #bj {
@@ -357,7 +378,17 @@ p {
     padding: 10px 20px;
     border-radius: 0.5em;
     text-decoration: none;
-    font-size: 1.2em;
+}
+
+#bj #bj-info {
+    background-color: rgba(32, 8, 8, 0.983);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 0.5em;
+    text-decoration: none;
+    position: absolute;
+    bottom: 2%;
+    left: 3%;
 }
 
 #calc {
@@ -381,7 +412,17 @@ p {
     padding: 10px 20px;
     border-radius: 0.5em;
     text-decoration: none;
-    font-size: 1.2em;
+}
+
+#calc #calc-info {
+    background-color: rgba(32, 8, 8, 0.983);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 0.5em;
+    text-decoration: none;
+    position: absolute;
+    bottom: 2%;
+    left: 3%;
 }
 
 #sat {
@@ -405,7 +446,17 @@ p {
     padding: 10px 20px;
     border-radius: 0.5em;
     text-decoration: none;
-    font-size: 1.2em;
+}
+
+#sat #sat-info {
+    background-color: rgba(32, 8, 8, 0.983);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 0.5em;
+    text-decoration: none;
+    position: absolute;
+    bottom: 2%;
+    left: 3%;
 }
 
 .pdf-container{
