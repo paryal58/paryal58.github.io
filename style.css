@@ -304,15 +304,7 @@ p {
     box-sizing: border-box;
 }
 
-#ai a {
-    background-color: red;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 0.5em;
-    text-decoration: none;
-}
-
-#ai #ai-info {
+.info {
     background-color: rgba(32, 8, 8, 0.983);
     color: white;
     padding: 10px 20px;
@@ -338,25 +330,6 @@ p {
     box-sizing: border-box;
 }
 
-#rb a {
-    background-color: red;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 0.5em;
-    text-decoration: none;
-}
-
-#rb #rb-info {
-    background-color: rgba(32, 8, 8, 0.983);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 0.5em;
-    text-decoration: none;
-    position: absolute;
-    bottom: 2%;
-    left: 3%;
-}
-
 #bj {
     background-image: url(images/bj.jpeg);
     background-size: cover;
@@ -370,25 +343,6 @@ p {
     padding: 10px;
     border-radius: inherit;
     box-sizing: border-box;
-}
-
-#bj a {
-    background-color: red;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 0.5em;
-    text-decoration: none;
-}
-
-#bj #bj-info {
-    background-color: rgba(32, 8, 8, 0.983);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 0.5em;
-    text-decoration: none;
-    position: absolute;
-    bottom: 2%;
-    left: 3%;
 }
 
 #calc {
@@ -406,25 +360,6 @@ p {
     box-sizing: border-box;
 }
 
-#calc a {
-    background-color: red;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 0.5em;
-    text-decoration: none;
-}
-
-#calc #calc-info {
-    background-color: rgba(32, 8, 8, 0.983);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 0.5em;
-    text-decoration: none;
-    position: absolute;
-    bottom: 2%;
-    left: 3%;
-}
-
 #sat {
     background-image: url(images/sat.png);
     background-size: cover;
@@ -440,23 +375,34 @@ p {
     box-sizing: border-box;
 }
 
-#sat a {
-    background-color: red;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 0.5em;
-    text-decoration: none;
+#triviaWhiz {
+    background-image: url(images/trivia.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 10px;
+    border-radius: inherit;
+    box-sizing: border-box;
 }
 
-#sat #sat-info {
-    background-color: rgba(32, 8, 8, 0.983);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 0.5em;
-    text-decoration: none;
-    position: absolute;
-    bottom: 2%;
-    left: 3%;
+#chat {
+    background-image: url(images/chat.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 10px;
+    border-radius: inherit;
+    box-sizing: border-box;
 }
 
 @media(max-width: 800px) {
@@ -547,10 +493,5 @@ p {
         box-shadow: 1px 1px 3px 3px grey;
         width: 30%;
         background-color: aliceblue;
-    }
-
-    .pdf-container{
-        height: 50em;
-        z-index: 1;
     }
 }
